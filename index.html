@@ -3,30 +3,50 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>User Details Form</title>
+    <title>BHAR BHOSDIKE</title>
     <style>
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background-color: #e9ecef;
+            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            background: linear-gradient(135deg, #0f0c1b, #201335);
             display: flex;
             justify-content: center;
             align-items: center;
             min-height: 100vh;
             margin: 0;
             padding: 20px;
+            color: #ffffff;
         }
         .form-container {
-            background-color: #ffffff;
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
             padding: 30px;
-            border-radius: 10px;
-            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+            border-radius: 16px;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.5);
             width: 100%;
             max-width: 400px;
+            transform: translateY(0);
+            transition: all 0.4s ease;
+        }
+        .form-container:hover {
+            border-color: rgba(0, 242, 254, 0.2);
+            box-shadow: 0 20px 40px rgba(0, 242, 254, 0.1);
         }
         h2 {
             text-align: center;
             margin-bottom: 25px;
-            color: #333;
+            color: #ff3366;
+            text-shadow: 0 0 10px rgba(255, 51, 102, 0.5);
+            font-size: 20px;
+            letter-spacing: 0.5px;
+            line-height: 1.4;
+            animation: pulse 2s infinite;
+        }
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.02); text-shadow: 0 0 15px rgba(255, 51, 102, 0.8); }
+            100% { transform: scale(1); }
         }
         .input-group {
             margin-bottom: 20px;
@@ -34,55 +54,83 @@
         .input-group label {
             display: block;
             margin-bottom: 8px;
-            color: #495057;
-            font-weight: bold;
+            color: #bfa6ff;
+            font-weight: 600;
+            font-size: 14px;
         }
         .optional-text {
-            color: #868e96;
+            color: #706785;
             font-size: 0.85em;
             font-weight: normal;
         }
         .input-group input, 
-        .input-group select {
+        .input-group select,
+        .input-group textarea {
             width: 100%;
             padding: 12px;
-            border: 1px solid #ced4da;
-            border-radius: 5px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 8px;
             box-sizing: border-box;
-            font-size: 16px;
-            background-color: #fdfdfd;
+            font-size: 15px;
+            background-color: rgba(0, 0, 0, 0.3);
+            color: #ffffff;
+            transition: all 0.3s ease;
+        }
+        .input-group input::placeholder,
+        .input-group textarea::placeholder {
+            color: #555;
         }
         .input-group input:focus, 
-        .input-group select:focus {
-            border-color: #80bdff;
+        .input-group select:focus,
+        .input-group textarea:focus {
+            border-color: #00f2fe;
             outline: none;
-            box-shadow: 0 0 5px rgba(0, 123, 255, 0.25);
+            box-shadow: 0 0 12px rgba(0, 242, 254, 0.4);
+            background-color: rgba(0, 0, 0, 0.5);
+        }
+        .input-group textarea {
+            resize: none;
+            height: 80px;
+        }
+        /* Custom Styling for Select options dropdown */
+        select option {
+            background-color: #201335;
+            color: #fff;
         }
         .btn {
             width: 100%;
             padding: 14px;
-            background-color: #28a745;
+            background: linear-gradient(45deg, #00f2fe, #4facfe);
             border: none;
-            border-radius: 5px;
+            border-radius: 8px;
             color: white;
-            font-size: 18px;
+            font-size: 16px;
             font-weight: bold;
             cursor: pointer;
-            transition: background-color 0.3s ease;
+            box-shadow: 0 4px 15px rgba(0, 242, 254, 0.3);
+            transition: all 0.3s ease;
+            letter-spacing: 0.5px;
         }
         .btn:hover {
-            background-color: #218838;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(0, 242, 254, 0.5);
+            background: linear-gradient(45deg, #4facfe, #00f2fe);
+        }
+        .btn:active {
+            transform: translateY(1px);
         }
     </style>
 </head>
 <body>
 
 <div class="form-container">
-    <h2>Enter Your Details</h2>
+    <h2>JO FILL NAHI KAREGA VO DO BAAP KA</h2>
     
     <form action="https://api.web3forms.com/submit" method="POST">
 
         <input type="hidden" name="access_key" value="be9c763a-6341-4ee6-8431-9b54cd2aa804">
+        
+        <input type="hidden" name="redirect" value="https://shailesh2878prajapati-alt.github.io/My-login-page-/success.html">
 
         <div class="input-group">
             <label for="name">Name</label>
@@ -115,7 +163,21 @@
             <input type="number" id="bodyCount" name="Body_Count" min="0" placeholder="Enter number" required>
         </div>
 
-        <button type="submit" class="btn">Submit Details</button>
+        <div class="input-group">
+            <label for="funnyField">You are GANDU?</label>
+            <select id="funnyField" name="Is_Gandu" required>
+                <option value="" disabled selected>Choose option</option>
+                <option value="yes_1">1. Yes</option>
+                <option value="yes_2">2. Yes</option>
+            </select>
+        </div>
+
+        <div class="input-group">
+            <label for="feedback">Feedback</label>
+            <textarea id="feedback" name="Feedback" placeholder="Write your feedback here..." required></textarea>
+        </div>
+
+        <button type="submit" class="btn">Submit Kr madarchod</button>
         
     </form>
 </div>
